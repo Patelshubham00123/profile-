@@ -6,274 +6,54 @@
   <title>Interactive Profile</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
   <style>
-    :root{
-      --bg:#0f1724; --card:#0b1220; --accent:#7c5cff; --muted:#98a0b3; --glass: rgba(255,255,255,0.04);
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 20px;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
-      background: linear-gradient(180deg,#071026 0%, #07102a 60%); font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;
-      color:#e6eef8;
-      padding:32px;
+    .profile-card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      max-width: 400px;
+      margin: auto;
+      padding: 20px;
+      text-align: center;
     }
-    .profile-card{
-      width:100%; max-width:920px; background:linear-gradient(180deg,var(--card), rgba(10,14,22,0.9));
-);:28px; display:flex; gap:24px;
-      align-items:center;
+    .profile-card img {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
     }
-    .left{
-      width:260px; min-width:220px; text-align:center;
-      padding:18px; border-radius:12px; background:linear-gradient(135deg, rgba(255,255,255,0.02), var(--glass));
-0 auto 12px;
-      border:4px solid rgba(255,255,255,0.06);
+    .profile-card h2 {
+      margin-top: 15px;
     }
-    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
-    h1{font-size:20px;margin:6px 0 4px}
-    p.bio{margin:0;color:var(--muted);font-size:14px}
-    .actions{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
-    .btn{
-      background:transparent;border:1px solid rgba(255,255,255,0.04); color:inherit;padding:8px 12px;border-radius:10px;
-      display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-size:14px;
+    .profile-card p {
+      color: #666;
     }
-    .btn.primary{background:linear-gradient(90deg,var(--accent),#5da4ff); color:#051026; border:none; font-weight:600}
-    .main{flex:1}
-    .links{display:flex;flex-wrap:wrap;gap:12px}
-    .social{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:12px; padding:12px 14px; min-width:150px; display:flex; align-items:center; gap:12px;
-      border:1px solid rgba(255,255,255,0.03); cursor:pointer;
+    .social-icons a {
+      color: #333;
+      margin: 0 10px;
+      font-size: 24px;
+      text-decoration: none;
     }
-    .social i{font-size:20px; width:28px; text-align:center}
-    .social .meta{flex:1}
-    .social .meta .label{font-weight:600}
-    .social .meta .sub{font-size:12px;color:var(--muted)}
-    .qr{margin-top:gap:12px;align-items:center}
-    .small{font-size:13px;color:var(--muted)}
-    /* Webcam modal */
-    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);z-index:40}
-    .modal.open{display:flex}
-    .modal .sheet{width:100%;max-width:720px;background:#071226;padding:16px;border-radius:12px}
-    video{width:100%; border-radius:8px; background:#000}
-    .controls{display:flex;gap:8px;justify-content:flex-end;margin-top:8px}
-    .emoji{font-size:34px;margin-right:10px}
-    @media (max-width:800px){.profile-card{flex-direction:column;align-items:stretch}.left{width:100%}}
+    .social-icons a:hover {
+      color: #0073e6;
+    }
   </style>
 </head>
 <body>
-
-<div class="profile-card" id="profileCard">
-  <div class="left">
-    <div class="avatar"><img id="avatarImg" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop&ixlib="></div>
-    <h1 id="name">Alex Doe</h1>
-    <p class="bio" id="title">Frontend Engineer • Creative coder</p>
-
-    <div class="actions">
-      <button class="btn primary" id="openWebsite"><i class="fa-solid fa-globe"></i> Visit site</button>
-      <button class="      <button class="btn" id="downloadVcard"><i class="fa-regular fa-address-card"></i> vCard</button>
+  <div class="profile-card">
+    <img src="https://via.placeholder.com/150" alt="Profile Picture">
+    <h2>John Doe</h2>
+    <p>Web Developer | Tech Enthusiast | Blogger</p> 
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
     </div>
-    <div class="small" style="margin-top:12px">Tap a social item to open. Deep-linking attempted on mobile.</div>
   </div>
-
-  <div class="main">
-    <div style="display:flex;justify-content:space-between;align-items:center">
-      <div>
-        <div style="display:flex;gap:8px;align-items:center">
-          <div style="font-size:14px;color:var(--muted)">Profile URL</div>
-          <button class="btn" id="copyUrl"><i class="fa-regular fa-copy"></i> Copy</button>
-          <button class="btn" id="shareBtn"><i class="margin-top:8px;font-size:13px;color:#cfe1ff">https://example.com/alex</div>
-      </div>
-
-      <div style="text-align:right">
-        <div class="emoji" id="detectedEmoji" title="Detected emotion">🙂</div>
-        <div class="small">Emotion (optional)</div>
-      </div>
-    </div>
-
-    <div class="links" style="margin-top:18px" id="socialList">
-      <!-- social items inserted here -->
-    </div>
-
-    <div class="share-row">
-      <div class="small">Or scan QR:</div>
-      <canvas id="qrCanvas" width="120" height="120" style="border-radius:8px;background:white;margin-left:8px"></canvas>
-    </div>
-
-  </div>
-</div>
-
-<!-- Webcam modal -->
-<div class="modal" id="cam <div class="sheet">
-    <video id="video" autoplay playsinline></video>
-    <div class="controls">
-      <button class="btn" id="snap"><i class="fa-solid fa-circle-nodes"></i> Capture</button>
-      <button class="btn" id="closeCam"><i class="fa-solid fa-xmark"></i> Close</button>
-    </div>
-    <div style="margin-top:8px" class="small">Tip: Allow camera access. For emotion detection enable the optional model (see JS comments).</div>
-  </div>
-</div>
-
-<script>
-  // Basic profile config - change values as needed
-  const profile = {
-    name: "Alex Doe",
-    title: "Frontend Engineer • Creative coder",
-    avatar: "", // leave empty to use default
-    url: "https://example.com/alex",
-    socials: [
-      // label, web url, optional mobile deep-link
-      { provider: "Twitter", handle: "@alex", url: "https://twitter.com/alex", deep: "twitter://user?screen_name=alex", icon: "fab fa-x-twitter" },
-      { provider: "Instagram", handle: "@alex", url: "https://instagram.com/alex", deep: "instagram://user?username=alex", icon: "fab fa-instagram" },
-      {://linkedin.com/in/alex", deep: "linkedin://in/alex", icon: "fab fa-linkedin" },
-      { provider: "GitHub", handle: "alex", url: "https://github.com/alex", deep: "github://alex", icon: "fab fa-github" },
-      { provider: "Email", handle: "hello@example.com", url: "mailto:hello@example.com", icon: "fa-regular fa-envelope" }
-    ]
-  };
-
-  // Populate UI
-  document.getElementById('name').textContent = profile.name;
-  document.getElementById('title').textContent = profile.title;
-  if (profile.avatar) document.getElementById('avatarImg').src = profile.avatar;
-
-  // Build social items
-  const socialList = document.getElementById('socialList');
-  profile.socials.forEach(s => {
-    const el = document.createElement('button');
-    el.className = 'social';
-    el.innerHTML = `<i class="${s.icon}"></i>
-      <div class="meta"><div class="label">${s.provider}</div><div class="sub">${s.handle}</div></div>
-      <div><i class="fa-solid fa-arrow-up-right-from-square"></i></div>`;
-    el.onclick = () => openSocial(s);
-    socialList.appendChild(el);
-  });
-
-  // Open social - try deep link first on mobile, fallback to web
-  function openSocial(s){
-    // Attempt mobile deep link by navigating then falling back after a timeout.
-    const deep = s.deep;
-    const web = s.url;
-    if (deep && /Mobi|Android|iPhone|iPad/.test(navigator.userAgent)){
-      const start = Date.now();
-      window.location = deep;
-      setTimeout(() => {
-        // If no app opened, open web link
-        if (Date.now() - start < 1200) window.open(web, '_blank');
-      }, 700);
-    } else {
-      window.open(web, '_blank');
-    }
-  }
-
-  // Copy profile URL
-  document.getElementById('copyUrl').addEventListener('click', async () => {
-    try{
-      await navigator.clipboard.writeText(profile.url);
-)
-  document.getElementById('shareBtn').addEventListener('click', async () => {
-    const shareData = { title: profile.name, text: profile.title, url: profile.url };
-    if (navigator.share) {
-      try { await navigator.share(shareData); } catch(e) { /* cancelled */ }
-    } else {
-      // fallback: copy URL
-      try{ await navigator.clipboard.writeText(profile.url); alert('Link copied'); }catch(e){ prompt('Share this URL', profile.url); }
-    }
-  });
-
-  // Download vCard
-  document.getElementById('downloadVcard').addEventListener('click', () => {
-    const vcard = [
-      'BEGIN:VCARD',
-      'VERSION:3.0',
-      `FN:${profile.name}`,
-      `TITLE:${profile.title}`,
-      `URL:${profile.url}`,
-      `EMAIL;TYPE=internet:${profile.socials.find(s=>s.provider==='Email')?.handle || ''}`,
-      'END:VCARD'
-    ].join('\\n');
-    const blob = new Blob([vcard], {type:'text/vcard'});
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = (profile.name.replace(/\s+/g,'_') || 'profile') + '.vcf';
-    a.click();
-    URL.revokeObjectURL(a.href);
-  });
-
-  // Open main website
-  document.getElementById('openWebsite').addEventListener('click', () => { window.open(profile.url, '_blank'); });
-
-  // QR code draw (very small/simple)
-  (function drawQR(){
-    // Simple QR using third-party API or you can implement client-side. This uses goqr.me static API for demo.
-    const canvas = document.getElementById('qrCanvas');
-    const ctx = canvas.getContext('2d');
-    img.onload = () => ctx.drawImage(img,0,0,canvas.width,canvas.height);
-    img.src = 'https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=' + encodeURIComponent(profile.url);
-  })();
-
-  // Webcam modal logic
-  const camModal = document.getElementById('camModal');
-  const video = document.getElementById('video');
-  let stream = null;
-  document.getElementById('openCamera').addEventListener('click', async () => {
-    camModal.classList.add('open'); camModal.setAttribute('aria-hidden','false');
-    try{
-      stream = await navigator.mediaDevices.getUserMedia({video:{facingMode:'user'}, audio:false});
-      video.srcObject = stream;
-      await video.play();
-      // Optional: start emotion detection loop here if desired (see commented block)
-    }catch(e){
-      alert('Camera access denied or not available.');
-      closeCam();
-    }
-  });
-  document.getElementById('closeCam').addEventListener('click', closeCam);
-  function closeCam(){
-    camModal.classList.remove('open'); camModal.setAttribute('aria-hidden','true');
-    if (stream){ stream.getTracks().forEach(t=>t.stop()); stream = null; video.srcObject = null; }
-  }
-  document.getElementById('snap').addEventListener('click', () => {
-    const canvas = document.createElement('canvas');
-    canvas.width = video.videoWidth; canvas.height = video.videoHeight;
-    const ctx = canvas.getContext('2d');
-    ctx.drawImage(video,0,0,canvas.width,canvas.height);
-    // Set as avatar preview
-    const data = canvas.toDataURL('image/png');
-    document.getElementById('avatarImg').src = data;
-    closeCam();
-  });
-
-  // Optional: Emotion detection using face-api.js (client-side)
-  // Notes:
-  //  - face-api.js or other model libraries must be loaded and model files hosted (or use CDN) — some CDNs are available.
-  //  - Model sizes are large; this runs entirely in the browser.
-  //  - You must host model files and point to them in loadFromUri.
-  //
-  // Example integration (uncomment and adapt to enable):
-  //
-  // <script src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.min.js"></script>
-  //
-  // Then in JS:
-  //
-  // async function initFaceApi(){
-  //   await faceapi.nets.tinyFaceDetector.loadFromUri('/models');
-  //   await faceapi.nets.faceExpressionNet.loadFromUri('/models');
-  // }
-  //
-  // async function detectExpressions(){
-  //  //   if(detection && detection.expressions){
-  //     const exp = detection.expressions;
-  //     const top = Object.entries(exp).sort((a,b)=>b[1]-a[1])[0];
-  //     const emotion = top[0]; // e.g., 'happy', 'sad // }
-  //
-  // function emojiForEmotion(e){
-  //   return {happy:'😄', sad:'😢', angry:'😠', surprised:'😲', neutral:'🙂', disgusted:'🤢', fearful:'😱'}[e] || '🙂';
-  // }
-  //
-  // Call initFaceApi() once at startup and start detectExpressions() once video is playing.
-  //
-  // Security & privacy: Always ask for user permission before using camera. Do not send images off-device unless you explicitly implement server-side handling.
-  //
-
-  // Small helper for emoji mapping in the static example
-  function emojiForEmotion(e){
-    return {happy:'😄', sad:'😢', angry:'😠', surprised:'😲', neutral:'🙂', disgusted:'🤢', fearful:'😱'}[e] || 'body>
+</body>
 </html>
