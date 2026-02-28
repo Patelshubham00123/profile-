@@ -97,8 +97,7 @@ footer {
     border-top: 2px solid #333;
     color: #888;
 }
-.profile-link {
-    color: #f01f1f;
-    text-decoration: none;
-    font-weight: bold;
+#id {
+    color: #ec1c1c;
+    font-size: 0.9em;
 }
