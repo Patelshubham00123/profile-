@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: black;
 }
 
 body {
@@ -95,4 +96,9 @@ footer {
     margin-top: 50px;
     border-top: 2px solid #333;
     color: #888;
+}
+.profile-link {
+    color: #f01f1f;
+    text-decoration: none;
+    font-weight: bold;
 }
